@@ -1,5 +1,4 @@
 const express = require("express");
-const expressSession = require("express-session");
 const passport = require("passport");
 const LinkedInStrategy = require("passport-linkedin-oauth2").Strategy;
 
@@ -11,7 +10,6 @@ passport.deserializeUser((user, done) => {
   done(null, user);
 });
 
-app.use(expressSession({ secret: "session_secret" }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.json());
